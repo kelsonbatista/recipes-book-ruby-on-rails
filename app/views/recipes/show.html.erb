@@ -1,9 +1,14 @@
 <h2>Receita: <%= @recipe.name %> </h2>
 <dl>
   <dt><strong>Nome: </strong><%= @recipe.name %></dt>
-  <dd><strong>Tipo: </strong><%= @recipe.recipe_type %></dd>
+  <dd><strong>Tipo: </strong><%= @recipe.recipe_type.name %></dd>
   <dd><strong>Culinária: </strong><%= @recipe.cuisine %></dd>
   <dd><strong>Ingredientes: </strong><%= @recipe.ingredients %></dd>
   <dd><strong>Preparo: </strong><%= @recipe.method %></dd>
   <dd><strong>Tempo: </strong><%= @recipe.time %></dd>
 </dl>
+
+<div>
+  <div><%= link_to 'Editar', edit_recipe_path(@recipe.id) %></div>
+  <div><%= link_to 'Apagar', recipe_path(@recipe.id), data: { turbo_method: :delete, turbo_confirm: 'Deseja apagar essa tarefa?' } %></div>
+</div>

@@ -2,7 +2,7 @@
   <%= f.label :name, 'Receita' %>
   <%= f.text_field :name %>
   <%= f.label :recipe_type, 'Tipo' %>
-  <%= f.text_field :recipe_type %>
+  <%= f.collection_select :recipe_type_id, RecipeType.order(:name), :id, :name %>
   <%= f.label :cuisine, 'Culinária' %>
   <%= f.text_field :cuisine %>
   <%= f.label :ingredients, 'Ingredientes' %>

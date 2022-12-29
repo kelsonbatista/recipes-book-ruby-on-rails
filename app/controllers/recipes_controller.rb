@@ -12,7 +12,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
-      redirect_to root_path
+      return redirect_to root_path
     end
     render new
   end
@@ -22,19 +22,23 @@ class RecipesController < ApplicationController
   end
 
   def update
-    @recipe.update(recipe_params)
-    redirect_to root_path
+    if @recipe.update(recipe_params)
+      return redirect_to recipe_path(@recipe.id)
+    end
+    render edit
   end
 
   def destroy
-    @recipe.destroy
-    redirect_to root_path
+    if @recipe.destroy
+      return redirect_to root_path
+    end
+    render show
   end
 
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :recipe_type, :cuisine, :ingredients, :method, :time)
+    params.require(:recipe).permit(:name, :recipe_type_id, :cuisine, :ingredients, :method, :time)
   end
 
   def recipe_find

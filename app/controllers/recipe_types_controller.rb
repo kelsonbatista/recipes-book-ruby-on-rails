@@ -8,8 +8,7 @@ class RecipeTypesController < ApplicationController
     if @recipe_type.save
       flash.notice = 'Tipo cadastrado com sucesso'
       return redirect_to recipe_types_path #o return garante que termina aqui
-    else
-      render new
     end
+    render new
   end
 end

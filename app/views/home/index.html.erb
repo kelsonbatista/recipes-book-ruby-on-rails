@@ -1,2 +1,9 @@
 <h1>Bem-vindo!</h1>
 <p>Esta é a página principal do seu novo aplicativo Rails.</p>
+
+<dl>
+<% @recipes.each do |r| %>
+  <dt><strong>Nome: </strong><%= r.name %></dt>
+  <dd><strong>Tipo: </strong><%= r.type %></dd>
+<% end %>
+</dl>

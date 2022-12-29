@@ -1,0 +1,10 @@
+<h2>Receita: <%= @recipe.name %> </h2>
+<dl>
+  <dt><strong>Nome: </strong><%= @recipe.name %></dt>
+  <dd><strong>Tipo: </strong><%= @recipe.recipe_type %></dd>
+  <dd><strong>Culinária: </strong><%= @recipe.cuisine %></dd>
+  <dd><strong>Ingredientes: </strong><%= @recipe.ingredients %></dd>
+  <dd><strong>Preparo: </strong><%= @recipe.method %></dd>
+  <dd><strong>Tempo: </strong><%= @recipe.time %></dd>
+</dl>
+<%= link_to 'Voltar', root_path %>

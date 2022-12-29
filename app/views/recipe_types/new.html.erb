@@ -1,0 +1,13 @@
+<h2>Cadastrar Tipo de receita</h2>
+<br />
+<% if flash.notice %>
+  <div>
+    <%= flash.notice %>
+  </div>
+<% end %>
+<br />
+<%= form_for RecipeType.new do |f| %>
+  <%= f.label :name, 'Tipo de receita' %>
+  <%= f.text_field :name %>
+  <%= f.submit 'Criar' %>
+<% end %>

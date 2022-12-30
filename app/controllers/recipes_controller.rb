@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :recipe_find, only: [:show, :edit, :update, :destroy]
+  before_action :recipe_find, only: [:show, :edit, :update, :destroy, :publish]
 
   def show
 
@@ -35,10 +35,20 @@ class RecipesController < ApplicationController
     render show
   end
 
+  def publish
+    if @recipe.draft?
+      @recipe.published!
+      return redirect_to recipe_path(@recipe.id)
+    else
+      @recipe.draft!
+      return redirect_to recipe_path(@recipe.id)
+    end
+  end
+
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :recipe_type_id, :cuisine_id, :ingredients, :method, :time)
+    params.require(:recipe).permit(:name, :recipe_type_id, :cuisine_id, :ingredients, :method, :time, :status)
   end
 
   def recipe_find

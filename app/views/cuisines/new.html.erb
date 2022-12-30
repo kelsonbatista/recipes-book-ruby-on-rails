@@ -1,0 +1,13 @@
+<h2>Cadastrar Culinária</h2>
+<br />
+<% if flash.notice %>
+  <div>
+    <%= flash.notice %>
+  </div>
+<% end %>
+<br />
+<%= form_for Cuisine.new do |f| %>
+  <%= f.label :name, 'Culinária' %>
+  <%= f.text_field :name %>
+  <%= f.submit 'Criar' %>
+<% end %>

@@ -1,15 +1,1 @@
-<%= form_for @recipe do |f| %>
-  <%= f.label :name, 'Receita' %>
-  <%= f.text_field :name %>
-  <%= f.label :recipe_type, 'Tipo' %>
-  <%= f.collection_select :recipe_type_id, RecipeType.order(:name), :id, :name %>
-  <%= f.label :cuisine, 'Culinária' %>
-  <%= f.text_field :cuisine %>
-  <%= f.label :ingredients, 'Ingredientes' %>
-  <%= f.text_area :ingredients %>
-  <%= f.label :method, 'Preparo' %>
-  <%= f.text_field :method %>
-  <%= f.label :time, 'Tempo' %>
-  <%= f.number_field :time %>
-  <%= f.submit 'Editar' %>
-<% end %>
+<%= render partial: 'form', locals: { recipe: @recipe } %>

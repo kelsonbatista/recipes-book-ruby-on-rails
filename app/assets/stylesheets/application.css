@@ -13,3 +13,69 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  padding-bottom: 300px !important;
+}
+
+nav {
+  margin-bottom: 30px !important;
+}
+
+nav a {
+  color: white !important;
+}
+
+nav a:hover {
+  color: #ccc !important;
+}
+
+.block {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.recipes__list-item {
+  display: flex;
+  justify-content: center;  
+  margin: 10px 0;
+}
+
+.recipes__list-item--name {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  background: #ddd;
+  padding: 10px;
+  color: black;
+}
+
+.recipes__list-item--edit {
+  margin: 0 20px;
+}
+
+a {
+  text-decoration: none !important;
+  color: black !important;
+}
+
+input, select, textarea {
+  margin: 0 0 20px 0 !important;
+  border: 1px solid #06f !important;
+  max-width: 400px !important;
+}
+
+label {
+  font-weight: bold !important;
+  padding-right: 10px !important;
+}
+
+.view__buttons {
+  display: flex;
+  justify-content: left;
+}
+
+.view__buttons button, .view__buttons a {
+  margin: 0 5px !important;
+}

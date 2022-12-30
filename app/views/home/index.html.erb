@@ -1,10 +1,19 @@
-<h1>Bem-vindo!</h1>
-<p>Esta é a página principal do seu novo aplicativo Rails.</p>
+<div class="recipes block">
+  <h1>Bem-vindo!</h1>
+  <p>Esta é a página principal do seu novo aplicativo Rails.</p>
 
-<div>
-<% @recipes.each do |recipe| %>
-  <div><%= link_to recipe.name, recipe_path(recipe) %></div>
-  <div><%= link_to 'Editar', edit_recipe_path(recipe) %></div>
-  <div><%= link_to 'Apagar', recipe_path(recipe), data: { turbo_method: :delete, turbo_confirm: 'Deseja apagar essa tarefa?' } %></div>
-<% end %>
+  <div class="recipes__list">
+  <% @recipes.each do |recipe| %>
+    <div class="recipes__list-item">
+      <div class="recipes__list-item--name"><%= link_to recipe.name, recipe_path(recipe) %></div>
+      <div class="recipes__list-item--edit">
+        <%= link_to 'Editar', edit_recipe_path(recipe), class: "btn btn-warning" %>
+      </div>
+      <div class="recipes__list-item--delete">
+        <%= link_to 'Apagar', 
+          recipe_path(recipe),
+          data: { turbo_method: :delete, turbo_confirm: 'Deseja apagar essa tarefa?' }, class: 'btn btn-danger' %></div>
+    </div>
+  <% end %>
+  </div>
 </div>

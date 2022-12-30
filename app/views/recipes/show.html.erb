@@ -1,14 +1,21 @@
-<h2>Receita: <%= @recipe.name %> </h2>
-<dl>
-  <dt><strong>Nome: </strong><%= @recipe.name %></dt>
-  <dd><strong>Tipo: </strong><%= @recipe.recipe_type.name %></dd>
-  <dd><strong>Culinária: </strong><%= @recipe.cuisine.name %></dd>
-  <dd><strong>Ingredientes: </strong><%= @recipe.ingredients %></dd>
-  <dd><strong>Preparo: </strong><%= @recipe.method %></dd>
-  <dd><strong>Tempo: </strong><%= @recipe.time %></dd>
-</dl>
-
-<div>
-  <div><%= link_to 'Editar', edit_recipe_path(@recipe.id) %></div>
-  <div><%= link_to 'Apagar', recipe_path(@recipe.id), data: { turbo_method: :delete, turbo_confirm: 'Deseja apagar essa tarefa?' } %></div>
+<div class="block">
+  <h2>Receita: <%= @recipe.name %> </h2>
+  <dl>
+    <dd><strong>Nome: </strong><%= @recipe.name %></dd>
+    <dd><strong>Tipo: </strong><%= @recipe.recipe_type.name %></dd>
+    <dd><strong>Culinária: </strong><%= @recipe.cuisine.name %></dd>
+    <dd><strong>Ingredientes: </strong><%= @recipe.ingredients %></dd>
+    <dd><strong>Preparo: </strong><%= @recipe.method %></dd>
+    <dd><strong>Tempo: </strong><%= @recipe.time %></dd>
+    <dd><strong>Status: </strong><%= @recipe.status %></dd>
+  </dl>
+  <br />
+  <div class="view__buttons">
+    <div><%= button_to 'Alterar Status', publish_recipe_path, { method: 'patch', class: "btn btn-primary" } %></div>
+    <div><%= link_to 'Editar', edit_recipe_path(@recipe.id), class: "btn btn-warning" %></div>
+    <div><%= link_to 'Apagar', 
+      recipe_path(@recipe.id), 
+      data: { turbo_method: :delete, turbo_confirm: 'Deseja apagar essa tarefa?' }, 
+      class: 'btn btn-danger' %></div>
+  </>
 </div>
